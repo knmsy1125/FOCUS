@@ -1,0 +1,2 @@
+module User::GoalsHelper
+end

@@ -1,0 +1,2 @@
+module Frend::FansHelper
+end

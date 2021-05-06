@@ -1,0 +1,2 @@
+module Frend::CommentsHelper
+end

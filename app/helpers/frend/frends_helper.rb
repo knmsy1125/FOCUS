@@ -1,0 +1,2 @@
+module Frend::FrendsHelper
+end
