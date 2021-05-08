@@ -1,0 +1,20 @@
+<header class="navbar navbar-dark bg-secondary">
+  <div class="container">
+    <div class="navbar-header">
+      <span class="navbar-brand"></span>
+      <a href="/"><img src="/assets/header_logo.png", root_path, class="header_logo" width=100 ></a>
+    </div>
+
+    <ul class="navbar-nav d-flex flex-row">
+      <% if user_signed_in? %>
+      <li><%= link_to "マイページ", users_path, class: "fas fa-tasks nav-link ml-3" %></li>
+      <li><%= link_to "フレンド", frends_path, class: "fas fa-users nav-link ml-3" %></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link ml-3" %></li>
+      <% else %>
+      <li><%= link_to "About", root_path, class: "fas fa-home nav-link ml-3" %></li>
+      <li><%= link_to "サインアップ", new_user_registration_path, class: "fas fa-user-plus nav-link ml-3" %></li>
+      <li><%= link_to "ログイン", new_user_session_path, class: "fas fa-sign-in-alt nav-link ml-3" %></li>
+      <% end %>
+    </ul>
+  </div>
+</header>
