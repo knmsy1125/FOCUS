@@ -11,7 +11,7 @@
       <li><%= link_to "フレンド", frends_path, class: "fas fa-users nav-link ml-3" %></li>
       <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link ml-3" %></li>
       <% else %>
-      <li><%= link_to "About", root_path, class: "fas fa-home nav-link ml-3" %></li>
+      <li><%= link_to "About", href="/#about", class: "fas fa-link nav-link ml-3" %></li>
       <li><%= link_to "サインアップ", new_user_registration_path, class: "fas fa-user-plus nav-link ml-3" %></li>
       <li><%= link_to "ログイン", new_user_session_path, class: "fas fa-sign-in-alt nav-link ml-3" %></li>
       <% end %>
