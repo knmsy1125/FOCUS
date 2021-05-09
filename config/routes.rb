@@ -4,17 +4,17 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
-  
-  root 'user/homes#top'
-  
+
+  root 'homes#top'
+
   scope module: :user do
-    resource :users, only: [:show, :edit, :update]
+    resource :users, only: [:update, :destroy]
+    get 'user/users' => 'users#show',as:'show_users'
     get 'users/unsubscribe' => 'users#unsubscribe'
-    delete 'users/withdraw'  => 'users#withdraw'
     resources :goals, only: [:new, :create, :index, :show]
     resources :tasks, only: [:index]
   end
-    
+
   scope module: :frend do
     resources :frends, only: [:index] do
       resources :comments, only: [:new, :create]

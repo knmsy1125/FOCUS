@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>マイページ</h2></br></br>
+            <div>
+                <strong>登録情報</strong>
+            </div></br></br>
+            <div>
+                氏名
+            </div><br>
+            <div>
+                <%= current_user.name %>
+            </div>
+            <div>
+                メールアドレス
+            </div><br>
+            <div>
+                <%= current_user.email %>
+            </div>
+            <div>
+                画像
+            </div><br>
+            <div>
+                <%= attachment_image_tag(current_user, :profile_image, :size =>'200x200', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %>
+            </div>
+
+        </div>
+    </div>
+</div>
