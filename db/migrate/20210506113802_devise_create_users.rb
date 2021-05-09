@@ -33,8 +33,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.datetime :locked_at
 
       t.string :name,             null: false                  #ユーザー名前
-      t.string :profile_image_id, null: false                  #ユーザー写真
-      t.string :frend_id,         null: false                  #検索用frendID
+      t.string :profile_image_id                               #ユーザー写真
+      t.string :frend_id                                       #検索用frendID
       t.boolean :is_deleted,      default: false, null: false  #退会フラグ
       t.timestamps null: false
     end
