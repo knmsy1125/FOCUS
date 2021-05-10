@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   root 'homes#top'
 
   scope module: :user do
-    resource :users, only: [:update, :destroy]
-    get 'user/users' => 'users#show',as:'show_users'
+    resource :users, only: [:destroy]
+    patch 'user/users' => 'users#update',as:'update_users'
+    get 'user/users' => 'users#edit',as:'edit_users'
+    get 'user/show_users' => 'users#show',as:'show_users'
     get 'users/unsubscribe' => 'users#unsubscribe'
     resources :goals, only: [:new, :create, :index, :show]
     resources :tasks, only: [:index]

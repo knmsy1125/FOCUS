@@ -24,6 +24,20 @@
                 <%= attachment_image_tag(current_user, :profile_image, :size =>'200x200', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %>
             </div>
 
+            <div>
+                <% current_user.goals.each do |goal| %>
+                    <%= goal.name %>
+                    <% Task.joins(:task_list).where(task_lists: {goal: goal}).each do |task| %>
+                        <%= task.title %>
+                        <%= task.boby %>
+                    <% end %>
+                <% end %>
+            </div>
+
+            <div>
+
+            </div>
+
         </div>
     </div>
 </div>

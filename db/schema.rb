@@ -21,26 +21,26 @@ ActiveRecord::Schema.define(version: 2021_05_06_114324) do
 
   create_table "goals", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.text "name", null: false
-    t.date "end_on", null: false
+    t.text "name"
+    t.date "end_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "task_lists", force: :cascade do |t|
     t.integer "goal_id", null: false
-    t.string "total_score", null: false
+    t.string "total_score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.integer "weight_id", null: false
+    t.integer "weight_id"
     t.integer "task_list_id", null: false
-    t.integer "count", null: false
-    t.integer "count_out", null: false
-    t.string "title", null: false
-    t.text "boby", null: false
+    t.integer "count"
+    t.integer "count_out"
+    t.string "title"
+    t.text "boby"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

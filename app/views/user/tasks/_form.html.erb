@@ -1,0 +1,13 @@
+<%= form_with model: goal, local: true do |f| %>
+  <table class="table table-borderless">
+    <tbody>
+      <tr>
+        <td><%= f.label :name, "タスク" %></td>
+        <td class="input"><%= f.text_field :title, class: "form-control", autofocus: true, placeholder: "タスク名前" %></td>
+        <td class="input"><%= f.text_field :boby, class: "form-control", autofocus: true, placeholder: "タスク詳細" %></td>
+          <%= f.date_select :end_on, {}, class: 'form-control' %>
+        <td><%= f.submit btn, class: "btn btn-success" %></td>
+
+    </tbody>
+  </table>
+<% end %>

@@ -17,7 +17,7 @@ class User::UsersController < ApplicationController
 	  @user = current_user
 	  if @user.update(user_params)
 	    flash[:success] = "登録情報を変更しました"
-	    redirect_to user_params
+	    redirect_to goals_path
 	  else
 	    render :edit and return
 	  end
@@ -33,7 +33,7 @@ class User::UsersController < ApplicationController
 	private
 
   def user_params
-    params.require(:user).permit(:name, :email, :profile_image_id, :frend_id)
+    params.require(:user).permit(:name, :email, :profile_image, :frend_id)
   end
 
 end
