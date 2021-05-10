@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2021_05_06_114324) do
 
   create_table "fans", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "sopporter", null: false
+    t.integer "sopporter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 2021_05_06_114324) do
 
   create_table "user_comments", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "commentator", null: false
-    t.text "comment", null: false
+    t.integer "commentator"
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2021_05_06_114324) do
   end
 
   create_table "weights", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
