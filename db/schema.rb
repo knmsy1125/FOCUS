@@ -36,13 +36,14 @@ ActiveRecord::Schema.define(version: 2021_05_06_114324) do
 
   create_table "tasks", force: :cascade do |t|
     t.integer "weight_id"
-    t.integer "task_list_id", null: false
+    t.integer "goal_id", null: false
     t.integer "count"
     t.integer "count_out"
     t.string "title"
     t.text "boby"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["goal_id"], name: "index_tasks_on_goal_id"
   end
 
   create_table "user_comments", force: :cascade do |t|

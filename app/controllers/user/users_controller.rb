@@ -3,6 +3,11 @@ class User::UsersController < ApplicationController
 
   def edit
     @user = current_user
+    @mypage_flag = false
+
+    if params[:m_flg].present?
+      @mypage_flag = true
+    end
   end
 
   def show
@@ -14,9 +19,14 @@ class User::UsersController < ApplicationController
 	end
 
 	def update
-	  @user = current_user
-	  if @user.update(user_params)
+	  user = current_user
+	  if user.update(user_params)
 	    flash[:success] = "登録情報を変更しました"
+	    if params[:m_flg].present?
+	      redirect_to show_users_path(user)
+	      return
+	    end
+
 	    redirect_to goals_path
 	  else
 	    render :edit and return

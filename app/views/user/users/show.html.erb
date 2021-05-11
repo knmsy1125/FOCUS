@@ -1,43 +1,39 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col">
-            <h2>マイページ</h2></br></br>
-            <div>
-                <strong>登録情報</strong>
-            </div></br></br>
-            <div>
-                氏名
-            </div><br>
-            <div>
-                <%= current_user.name %>
-            </div>
-            <div>
-                メールアドレス
-            </div><br>
-            <div>
-                <%= current_user.email %>
-            </div>
-            <div>
-                画像
-            </div><br>
-            <div>
-                <%= attachment_image_tag(current_user, :profile_image, :size =>'200x200', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %>
-            </div>
+        <div class="col-3">
+            <div class="col centre">
+                <div>
+                    <%= attachment_image_tag(current_user, :profile_image, :size =>'200x200', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %>
+                </div><br>
 
-            <div>
-                <% current_user.goals.each do |goal| %>
-                    <%= goal.name %>
-                    <% Task.joins(:task_list).where(task_lists: {goal: goal}).each do |task| %>
-                        <%= task.title %>
-                        <%= task.boby %>
-                    <% end %>
-                <% end %>
+                <div>
+                    <%= current_user.name %>
+                </div>
+                <%= link_to '',edit_users_path(:m_flg => 1), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
             </div>
-
-            <div>
-
-            </div>
-
         </div>
+
+        <div class="col-5">
+            <div class="col centre">
+                <div>
+                    <% current_user.goals.each do |goal| %>
+                        <%= goal.name %><br>
+                        <% goal.tasks.each do |task| %>
+                            <%= task.title %>
+                            <%= task.boby %>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="col centre">
+                pan
+            </div>
+        </div>
+
+
+
     </div>
 </div>

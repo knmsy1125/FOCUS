@@ -17,3 +17,9 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+  $('#addForm').click(function(){
+    $('#task_set').append($('#task_form').html());
+  });
+});

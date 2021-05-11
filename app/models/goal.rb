@@ -1,4 +1,4 @@
 class Goal < ApplicationRecord
-  has_many :task_lists
+  has_many :tasks
   belongs_to :user
 end

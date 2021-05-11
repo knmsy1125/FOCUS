@@ -5,17 +5,16 @@
         <div class="login-signup_box">
         <h1>設定</h1><br>
 
+
         <%= form_for(current_user, url: update_users_path, method: :patch) do |f| %>
 
           <div>
-            <% if current_user.profile_image_id.nil? %>
-              <%= image_tag 'no-image-icon.png', :size =>'200x200', :style =>"border-radius: 80%", id: "preview" %>
-              <!--<img id="preview", src="assets/images/no-image-icon.png" style="width: 200px; border-radius: 80%; height: 200px;">-->
-            <% else %>
-              <img id="preview" style="width: 200px; border-radius: 80%; height: 200px;">
+            <% if @mypage_flag.present? %>
+               <%= hidden_field_tag :m_flg, 1 %>
             <% end %>
           </div>
           <div class="col centre">
+            <%= attachment_image_tag(current_user, :profile_image, :id => "preview", :size =>'200x200', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %>
             <%= f.attachment_field :profile_image, class: "form-control-file user_image" %>
             </div><br>
           <div>
