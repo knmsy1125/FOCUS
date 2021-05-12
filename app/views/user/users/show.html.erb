@@ -19,7 +19,7 @@
                     <% current_user.goals.each do |goal| %>
                         <%= goal.name %><br>
                         <% goal.tasks.each do |task| %>
-                            <%= task.title %>
+                            <%= link_to task.title, edit_task_path(task), class: "task_#{task.id}" %>
                             <%= task.boby %>
                         <% end %>
                     <% end %>
@@ -29,7 +29,7 @@
 
         <div class="col-4">
             <div class="col centre">
-                pan
+                <%= @score %>
             </div>
         </div>
 

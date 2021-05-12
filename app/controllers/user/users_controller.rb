@@ -12,6 +12,9 @@ class User::UsersController < ApplicationController
 
   def show
     @user = current_user
+    #id 1の情報を無理やり持ってきている。あとで書き換える。
+    @goal = Goal.find(1)
+    @tasks = @goal.tasks
   end
 
 	def unsubscribe

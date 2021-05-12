@@ -5,9 +5,6 @@ class User::TasksController < ApplicationController
     @tasks = Task.where(user_id: current_user.id)
   end
 
-  def new
-  end
-
   def show
   end
 
@@ -21,23 +18,24 @@ class User::TasksController < ApplicationController
     end
   end
 
-  # 配送先編集画面
   def edit
+    @task = Task.find(params[:id])
   end
 
-  # 配送先編集画面 => 配送先更新
   def update
+    @task = Task.find(params[:id])
     if @task.update(task_params)
-      redirect_to goals_path, flash: {success: "タスクを更新しました！"}
+      redirect_to show_users_path, flash: {success: "タスクを更新しました！"}
     else
       render :edit
     end
   end
 
-  # 配送先登録/一覧画面 => 配送先削除
   def destroy
+    @task = Task.find(params[:id])
     @task.destroy
-    redirect_to goalss_path, flash: {success: "タスクを更新しました"}
+    flash[:notice] = 'ユーザーを削除しました。'
+    redirect_to show_users_path #削除に成功すればrootページに戻る
   end
 
   private
@@ -46,7 +44,7 @@ class User::TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
-  def goal_params
-    params.require(:task).permit(:title, :boby)
+  def task_params
+    params.require(:task).permit(:title, :boby, :count, :count_out)
   end
 end
