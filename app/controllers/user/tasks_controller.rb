@@ -1,11 +1,12 @@
 class User::TasksController < ApplicationController
   before_action :authenticate_user!
   def index
-    @task = current_user.tasks.new
-    @tasks = Task.where(user_id: current_user.id)
+
+    @task = Task.where(user_id: current_user.id)
   end
 
   def show
+    @task = Task.find(params[:id])
   end
 
   def create

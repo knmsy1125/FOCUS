@@ -1,27 +1,25 @@
 <%= form_with model: goal, local: true do |f| %>
-  <table class="table table-borderless">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6">
+        <%= f.label :create_at, "開始日" %>
+        <%= f.date_select :create_at,  {:use_month_numbers  => true}, {class: 'form-control', style: 'display: inline-block;width: auto;'} %>
+        <%= f.label :end_on, "終了日" %>
+        <%= f.date_select :end_on,  {:use_month_numbers  => true}, {class: 'form-control', style: 'display: inline-block;width: auto;'} %>
+        <%= f.label :name, "目標" %>
+        <%= f.text_field :name, class: "form-control", autofocus: true, placeholder: "目標" %>
+      </div>
 
-        <div><%= f.label :create_at, "開始日" %></div>
-        <div><%= f.date_select :create_at, {}, {class: 'form-control', style: 'display: inline-block;width: auto;'} %></div>
-        <div><%= f.label :end_on, "終了日" %></div>
-        <div><%= f.date_select :end_on, {}, {class: 'form-control', style: 'display: inline-block;width: auto;'} %></div>
-
-        <div></div><%= f.label :name, "目標" %></div><br>
-        <div class="input"><%= f.text_field :name, class: "form-control", autofocus: true, placeholder: "目標" %></div><br>
-
-
-        <div><%= f.label :name, "タスク" %></div>
-        
-        <!--  <div class="input"><#%= f.text_field :title, class: "form-control", autofocus: true, placeholder: "タスク名前" %></div>-->
-        <!--  <div class="input"><#%= f.text_field :boby, class: "form-control", autofocus: true, placeholder: "タスク詳細"  %></div><br>-->
-        <!--<3% end %>-->
-        <div id="task_set">
-          <%= f.fields_for :tasks do |task| %>
-          <%= render 'task_form', f: f %>
-          <% end %>
+      <div class="col-6">
+        <%= f.label :name, "タスク" %>
+        <%= f.fields_for :tasks do |task| %>
+          <%= render 'task_fields', :f => task %>
+        <% end %>
+        <div class='links'>
+          <%= link_to_add_association 'add task', f, :tasks %>
         </div>
-        <input type="button" value="+" id="addForm">
-        <div><%= f.submit btn, class: "btn btn-success" %></td>
-    </tbody>
-  </table>
+        <%= f.submit btn, class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
 <% end %>

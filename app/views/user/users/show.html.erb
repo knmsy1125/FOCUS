@@ -11,18 +11,22 @@
                 </div>
                 <%= link_to '',edit_users_path(:m_flg => 1), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
             </div>
+            <div>
+              <%= @goal.name %>
+              <%= @goal.end_on %>
+            </div>
         </div>
 
         <div class="col-5">
             <div class="col centre">
                 <div>
                     <% current_user.goals.each do |goal| %>
-                        <%= goal.name %><br>
-                        <% goal.tasks.each do |task| %>
-                            <%= link_to task.title, edit_task_path(task), class: "task_#{task.id}" %>
-                            <%= task.boby %>
+                        <%= link_to goal.name, goal_path(goal.id) %>
+                        <%= goal.end_on %>
+
+
                         <% end %>
-                    <% end %>
+
                 </div>
             </div>
         </div>

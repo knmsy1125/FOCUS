@@ -3,6 +3,7 @@ class User::GoalsController < ApplicationController
 
   def index
     @goal = current_user.goals.new
+    @goal.tasks.build
     @goals = Goal.where(user_id: current_user.id)
   end
 
@@ -10,11 +11,12 @@ class User::GoalsController < ApplicationController
   end
 
   def show
+    @goal = Goal.find(params[:id])
   end
 
   def create
     @goal = current_user.goals.new(goal_params)
-    @task = @goal.tasks.new(title: params[:goal][:title], boby: params[:goal][:boby])
+    #@task = @goal.tasks.new(title: params[:goal][:title], boby: params[:goal][:boby])
     if @goal.save
       redirect_to show_users_path, flash: {success: "登録しました！"}
     else
@@ -46,7 +48,7 @@ class User::GoalsController < ApplicationController
   end
 
   def goal_params
-    params.require(:goal).permit(:name, :end_on)
+    params.require(:goal).permit(:name, :end_on, tasks_attributes: [:id,:title, :boby,:_destroy])
   end
 
 end
