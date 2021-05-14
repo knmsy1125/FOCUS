@@ -10,11 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_114324) do
+ActiveRecord::Schema.define(version: 2021_05_14_041153) do
 
   create_table "fans", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "sopporter"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "friends", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -40,7 +45,7 @@ ActiveRecord::Schema.define(version: 2021_05_06_114324) do
     t.integer "count"
     t.integer "count_out"
     t.string "title"
-    t.text "boby"
+    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["goal_id"], name: "index_tasks_on_goal_id"
@@ -62,7 +67,7 @@ ActiveRecord::Schema.define(version: 2021_05_06_114324) do
     t.datetime "remember_created_at"
     t.string "name", null: false
     t.string "profile_image_id"
-    t.string "frend_id"
+    t.string "friend_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

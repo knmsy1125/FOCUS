@@ -1,11 +1,18 @@
 <%= form_with model: @task, url: task_path, method: :patch, local: true do |f| %>
-  <div>
-    タスク名前<%= f.text_field :title, autofocus: true, class: "title" %>
-  </div>
+  <div class="col centre"><br>
 
-  <div>
-    タスク詳細<%= f.text_field :boby, autofocus: true, autocomplete: "boby" %>
-  </div>
-<%= f.submit '編集内容を保存', class: "btn btn-success" %>
-<%= link_to "削除する", task_path, method: :delete, class: "btn btn-danger" %>
+  <h2>タスク編集</h2><br><br>
+  <h4>
+    タスク名前<br><br><%= f.text_field :title, autofocus: true, class: "title" %>
+  </h4><br><br>
+
+  <h4>
+    タスク詳細<br><br><%= f.text_field :body, autofocus: true, autocomplete: "boby" %>
+  </h4><br><br><br>
+
+
+<div><%= f.submit '編集内容を保存', class: "btn btn-success" %>　<%= link_to "削除する", task_path, method: :delete, class: "btn btn-danger" %></div>
+</div>
 <% end %>
+
+

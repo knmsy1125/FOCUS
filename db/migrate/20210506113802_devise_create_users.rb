@@ -34,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       t.string :name,             null: false                  #ユーザー名前
       t.string :profile_image_id                               #ユーザー写真
-      t.string :frend_id                                       #検索用frendID
+      t.string :friend_id                                       #検索用frendID
       t.timestamps null: false
     end
 

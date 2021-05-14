@@ -4,7 +4,7 @@
       <%= f.text_field :title, class: "form-control", autofocus: true, placeholder: "タスク名前" %>
     </div>
     <div class="field">
-      <%= f.text_area :boby, class: "form-control", autofocus: true, placeholder: "タスク詳細" %>
-    </div>
-    <%= link_to_remove_association "remove task", f %>
+      <%= f.text_field :body, class: "form-control", autofocus: true, placeholder: "タスク詳細" %>
+    </div><br>
+    <div class="col centre"><%= link_to_remove_association "削除", f, class: "btn btn-danger w-100" %></div><br>
 </div>

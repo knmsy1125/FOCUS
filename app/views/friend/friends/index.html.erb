@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <div class="col centre"><br>
+                <div>
+                    <%= attachment_image_tag(current_user, :profile_image, :size =>'200x200', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %>
+                </div><br>
+
+                <h4>
+                    <%= current_user.name %>
+                </h4><br>
+                <%= link_to '',edit_users_path(:m_flg => 1), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %><br><br><br>
+            
+          
+
+        <div class="col-5">
+          
+        </div>
+
+        <div class="col-4">
+        
+        </div>
+
+
+
+    </div>
+</div>

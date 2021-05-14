@@ -48,7 +48,7 @@ class User::GoalsController < ApplicationController
   end
 
   def goal_params
-    params.require(:goal).permit(:name, :end_on, tasks_attributes: [:id,:title, :boby,:_destroy])
+    params.require(:goal).permit(:name, :end_on, tasks_attributes: [:id,:title, :body,:_destroy])
   end
 
 end

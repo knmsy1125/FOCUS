@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Frend::FrendsControllerTest < ActionDispatch::IntegrationTest
+class FriendTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

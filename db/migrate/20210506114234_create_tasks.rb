@@ -6,7 +6,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.integer :count                                    #できたときの判定
       t.integer :count_out                                #できなかった時の判定
       t.string :title                                     #タスク名前
-      t.text :boby                                        #タスク詳細
+      t.text :body                                        #タスク詳細
       t.timestamps
     end
   end

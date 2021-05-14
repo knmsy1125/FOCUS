@@ -1,7 +1,9 @@
 <% current_user.goals.each do |goal| %>
     <% goal.tasks.each do |task| %>
+    <div class="col centre">
         <%= task.title %>
-        <%= task.boby %>
+        <%= task.body %>
         <%= link_to task.title, edit_task_path(task), class: "task_#{task.id}" %>
+
     <% end %>
 <% end %>

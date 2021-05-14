@@ -14,11 +14,11 @@ Rails.application.routes.draw do
     get 'user/show_users' => 'users#show',as:'show_users'
     get 'users/unsubscribe' => 'users#unsubscribe'
     resources :goals, only: [:new, :create, :index, :show]
-    resources :tasks, only: [:index, :show, :edit , :update,:destroy]
+    resources :tasks, only: [:index, :show, :edit, :new, :update,:destroy]
   end
 
-  scope module: :frend do
-    resources :frends, only: [:index] do
+  scope module: :friend do
+    resources :friends, only: [:index] do
       resources :comments, only: [:new, :create]
       resources :fans, only: [:create]
     end

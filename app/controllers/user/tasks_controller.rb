@@ -1,8 +1,13 @@
 class User::TasksController < ApplicationController
   before_action :authenticate_user!
   def index
-
     @task = Task.where(user_id: current_user.id)
+  end
+
+  def new
+    @goal = current_user.goals.new
+    @goal.tasks.build
+    @goals = Goal.where(user_id: current_user.id)
   end
 
   def show
@@ -46,6 +51,6 @@ class User::TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :boby, :count, :count_out)
+    params.require(:task).permit(:title, :body, :count, :count_out)
   end
 end

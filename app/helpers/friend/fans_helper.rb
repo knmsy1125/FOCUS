@@ -1,0 +1,2 @@
+module Friend::FansHelper
+end
