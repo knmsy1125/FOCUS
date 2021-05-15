@@ -7,7 +7,12 @@ class User::TasksController < ApplicationController
   def new
     @goal = current_user.goal
     @goal.tasks.build
+    @task = Task.new
     @goals = Goal.where(user_id: current_user.id)
+    if @task.save
+      redirect_to goal_path, flash: {success: "タスクを登録しました！"}
+
+    end
   end
 
   def show
@@ -15,9 +20,9 @@ class User::TasksController < ApplicationController
   end
 
   def create
-    @task = current_user.tasks.new(task_params)
+    @task = current_user.goal.tasks.build(task_params)
     if @task.save
-      redirect_to @task, flash: {success: "タスクを登録しました！"}
+      redirect_to show_users_path, flash: {success: "タスクを登録しました！"}
     else
       @tasks = Task.where(user_id: current_user.id)
       render :index

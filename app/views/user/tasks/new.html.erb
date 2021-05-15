@@ -1,12 +1,11 @@
-<%= form_with model: task, local: true do |f| %>
+<%= form_with model: @task, local: true do |f| %>
   <table class="table table-borderless">
     <tbody>
       <tr>
         <td><%= f.label :name, "タスク" %></td>
         <td class="input"><%= f.text_field :title, class: "form-control", autofocus: true, placeholder: "タスク名前" %></td>
         <td class="input"><%= f.text_field :body, class: "form-control", autofocus: true, placeholder: "タスク詳細" %></td>
-          <%= f.date_select :end_on, {}, class: 'form-control' %>
-        <td><%= link_to "編集する", goal_path, class: "btn btn-danger" %></td>
+        <td><%= f.submit '追加', class: "btn btn-success" %></td>
 
     </tbody>
   </table>

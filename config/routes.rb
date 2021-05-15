@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     get 'user/new_users' => 'users#new',as:'new_users'
     get 'users/unsubscribe' => 'users#unsubscribe'
     resources :goals, only: [:new, :create, :index, :show]
-    resources :tasks, only: [:index, :show, :edit, :new, :update,:destroy]
+    resources :tasks, only: [:index, :show, :edit, :new, :create, :update,:destroy]
   end
 
   scope module: :friend do
