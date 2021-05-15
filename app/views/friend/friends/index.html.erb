@@ -9,18 +9,65 @@
                 <h4>
                     <%= current_user.name %>
                 </h4><br>
-                <%= link_to '',edit_users_path(:m_flg => 1), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %><br><br><br>
-            
-          
+                <h2>ユーザー検索</h2><br>
+
+              <% if user_signed_in? %>
+                <div class="search_form">
+                <%= form_with url: friends_path, local: true, method: :get do |f| %>
+                    <%= f.text_field :word %>
+                    <%= f.select :method, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backword_match"], ["部分一致","partial_match"]]) %>
+                    <%= f.submit "検索", class: "btn btn-primary" %>
+                <% end %>
+              </div><br><br>
+              <% end %>
+              <div>
+                    <% if @users.present? %>
+                       <% @users.each do |user| %>
+                            <div><%= attachment_image_tag(user, :profile_image, :size =>'150x150', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %></div><br>
+                            <h5><%= user.name %></h5><br>
+
+                            <%= form_with model: user, url: friends_path, local: true, method: :post do |f| %>
+                               <%= f.hidden_field :friends, :value => user.id %>
+                               <%= f.submit "create friends", class: "btn btn-primary" %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+              </div>
+            </div>
+        </div>
 
         <div class="col-5">
-          
+            <div class="col centre"><br>
+
+
+            <h2>フレンド</h2><br><br>
+                    <% if @friends.present? %>
+                       <% @friends.each do |user| %>
+                           <div class='user-card'>
+                                <tr>
+                                    <td>
+                                        <%= attachment_image_tag(user, :profile_image, :size =>'100x100', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %>
+                                    </td>
+                                    <td>
+                                        <%= user.name %>
+                                    </td>
+                                </tr>
+                                <h5>ゴールフォーカス</h5>
+                                <div><%= user.goal.name %></div>
+                                <div>タスクリスト</div>
+                                <% user.goal.tasks.each do |task| %>
+                                    <div><%= task.title %></div>
+                                <% end %>
+                            </div>
+                        <% end %>
+                    <% end %>
+            </div>
         </div>
 
         <div class="col-4">
-        
-        </div>
 
+            </div>
+        </div>
 
 
     </div>

@@ -34,8 +34,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       t.string :name,             null: false                  #ユーザー名前
       t.string :profile_image_id                               #ユーザー写真
-      t.string :friend_id                                      #検索用frendID
-      t.string :dream                                          #夢
+      t.string :friends, null: false, default: ""                                       #検索用frend
+      t.string :dream
       t.timestamps null: false
     end
 

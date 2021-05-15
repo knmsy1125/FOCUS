@@ -10,16 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_14_041153) do
+ActiveRecord::Schema.define(version: 2021_05_06_114324) do
 
   create_table "fans", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "sopporter"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "friends", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,7 +62,7 @@ ActiveRecord::Schema.define(version: 2021_05_14_041153) do
     t.datetime "remember_created_at"
     t.string "name", null: false
     t.string "profile_image_id"
-    t.string "friend_id"
+    t.string "friends", default: "", null: false
     t.string "dream"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :friend do
-    resources :friends, only: [:index] do
+    resources :friends, only: [:index, :create] do
       resources :comments, only: [:new, :create]
       resources :fans, only: [:create]
     end
