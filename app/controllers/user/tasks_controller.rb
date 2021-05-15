@@ -5,7 +5,7 @@ class User::TasksController < ApplicationController
   end
 
   def new
-    @goal = current_user.goals.new
+    @goal = current_user.goal
     @goal.tasks.build
     @goals = Goal.where(user_id: current_user.id)
   end

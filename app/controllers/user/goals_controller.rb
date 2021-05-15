@@ -2,7 +2,7 @@ class User::GoalsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @goal = current_user.goals.new
+    @goal = current_user.build_goal
     @goal.tasks.build
     @goals = Goal.where(user_id: current_user.id)
   end
@@ -15,7 +15,7 @@ class User::GoalsController < ApplicationController
   end
 
   def create
-    @goal = current_user.goals.new(goal_params)
+    @goal = current_user.build_goal(goal_params)
     #@task = @goal.tasks.new(title: params[:goal][:title], boby: params[:goal][:boby])
     if @goal.save
       redirect_to show_users_path, flash: {success: "登録しました！"}

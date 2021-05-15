@@ -17,13 +17,10 @@ class User::UsersController < ApplicationController
 
   def show
     @user = current_user
-    @goals =  @user.goals.where(end_on: Time.zone.today.beginning_of_day..Float::INFINITY)
-    if @goals.present?
-      redirect_to goal_path(@goals[0].id)
+    @goal =  @user.goal
+    if @goal.present?
+      redirect_to goal_path(@goal.id)
     end
-    #id 1の情報を無理やり持ってきている。あとで書き換える。
-    @goal = Goal.find(1)
-    @tasks = @goal.tasks
   end
 
 	def unsubscribe
