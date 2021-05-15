@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2021_05_14_041153) do
     t.string "name", null: false
     t.string "profile_image_id"
     t.string "friend_id"
+    t.string "dream"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

@@ -1,0 +1,23 @@
+<div class="background">
+  <div class="container">
+    <div class="row">
+      <div class="col centre">
+        <div class="login-signup_box">
+        <h1>設定</h1><br>
+
+
+        <%= form_for(current_user, url: dream_users_path, method: :patch) do |f| %>
+            <div class="field">
+              <%= f.label :夢 %><br />
+              <%= f.text_field :dream, autofocus: true, autocomplete: "name", size: 25 %>
+            </div><br />
+
+
+          <%= f.submit '保存', class: "btn btn-success" %>
+
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

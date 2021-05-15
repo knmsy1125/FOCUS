@@ -1,6 +1,11 @@
 class User::UsersController < ApplicationController
   before_action :authenticate_user!
 
+  def new
+    @user = current_user
+    @dream = @user
+  end
+
   def edit
     @user = current_user
     @mypage_flag = false
@@ -25,6 +30,14 @@ class User::UsersController < ApplicationController
 	  @user = current_user
 	end
 
+  def dream
+    user = current_user
+	  if user.update(user_params)
+	    flash[:success] = "登録情報を保存しました"
+	    redirect_to goals_path
+	  end
+  end
+
 	def update
 	  user = current_user
 	  if user.update(user_params)
@@ -34,9 +47,9 @@ class User::UsersController < ApplicationController
 	      return
 	    end
 
-	    redirect_to goals_path
+	    redirect_to new_users_path
 	  else
-	    render :edit and return
+	    render :edit
 	  end
 	end
 
@@ -50,7 +63,7 @@ class User::UsersController < ApplicationController
 	private
 
   def user_params
-    params.require(:user).permit(:name, :email, :profile_image, :frend_id)
+    params.require(:user).permit(:name, :email, :profile_image, :frend_id, :dream)
   end
 
 end

@@ -9,9 +9,12 @@ Rails.application.routes.draw do
 
   scope module: :user do
     resource :users, only: [:destroy]
+
     patch 'user/users' => 'users#update',as:'update_users'
+    patch 'user/dream_users' => 'users#dream',as:'dream_users'
     get 'user/users' => 'users#edit',as:'edit_users'
     get 'user/show_users' => 'users#show',as:'show_users'
+    get 'user/new_users' => 'users#new',as:'new_users'
     get 'users/unsubscribe' => 'users#unsubscribe'
     resources :goals, only: [:new, :create, :index, :show]
     resources :tasks, only: [:index, :show, :edit, :new, :update,:destroy]
