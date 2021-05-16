@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_114324) do
+ActiveRecord::Schema.define(version: 2021_05_16_072857) do
 
   create_table "fans", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 2021_05_06_114324) do
     t.date "end_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "is_dones", force: :cascade do |t|
+    t.integer "task_id", null: false
+    t.date "execution"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_is_dones_on_task_id"
   end
 
   create_table "task_lists", force: :cascade do |t|
