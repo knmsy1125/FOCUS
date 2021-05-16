@@ -1,5 +1,5 @@
 class TodayMailer < ApplicationMailer
-  default from: '管理者のメールアドレス'
+  default from: 'focus.xxxxxx@gmail.com'
 
   def today_email
     users =  User.all

@@ -19,10 +19,10 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.day, at: ['10:00 pm'] do #OSがUTCだからJST日本時刻を表示させるため−９の時刻
+every 1.day, at: ['11:00 pm'] do #OSがUTCだからJST日本時刻を表示させるため−９の時刻
   runner "TodayMailer.today_email.deliver"
 end
 
-every 1.day, at: ['10:00 pm'] do
+every 1.day, at: ['11:00 pm'] do
   runner "WeekNoLoginMailer.week_no_login_email.deliver"
 end

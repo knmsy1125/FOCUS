@@ -1,5 +1,5 @@
 class WeekNoLoginMailer < ApplicationMailer
-  default from: '管理者のメールアドレス'
+  default from: 'focus.xxxxxx@gmail.com'
 
   def week_no_login_email
     @user = User.all
