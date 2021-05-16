@@ -1,3 +1,7 @@
-Hello, <%= @user.name %>.
-Welcome to my family!!
-登録完了しました
+おはようございます。
+本日のタスク一覧です。
+本日も一日がんばりましょう！！
+<%= @user.name %>
+<% @goal.tasks.each do |task| %>
+<%= task.title %>
+<%= task.body %>

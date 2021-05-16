@@ -9,10 +9,7 @@
       今日のタスク一覧です。<br>
       夢に向かってがんばりましょう。<br>
       <%= @user.name %>
-      <% @goal.tasks.each do |task| %>
-        <%= task.title %><br>
-        <%= task.body %>
-      <% end %>
+      <%= @dream %>
       </h1>
   </body>
 </html>
