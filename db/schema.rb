@@ -57,6 +57,11 @@ ActiveRecord::Schema.define(version: 2021_05_06_114324) do
     t.string "profile_image_id"
     t.string "friends", default: "", null: false
     t.string "dream"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
