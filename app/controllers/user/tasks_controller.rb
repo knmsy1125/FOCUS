@@ -51,10 +51,6 @@ class User::TasksController < ApplicationController
 
   private
 
-  def set_shipping_info
-    @task = Task.find(params[:id])
-  end
-
   def task_params
     params.require(:task).permit(:title, :body, :count, :count_out)
   end

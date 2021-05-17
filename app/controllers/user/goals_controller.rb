@@ -7,9 +7,6 @@ class User::GoalsController < ApplicationController
     @goals = Goal.where(user_id: current_user.id)
   end
 
-  def new
-  end
-
   def show
     @goal = Goal.find(params[:id])
     @user_comments = current_user.user_comments
@@ -27,9 +24,6 @@ class User::GoalsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def update
     if @goal.update(goal_params)
       redirect_to goals_path, flash: {success: "更新しました！"}
@@ -38,16 +32,7 @@ class User::GoalsController < ApplicationController
     end
   end
 
-  def destroy
-    @goal.destroy
-    redirect_to goalss_path, flash: {success: "更新しました"}
-  end
-
   private
-
-  def set_shipping_info
-    @goal = Goal.find(params[:id])
-  end
 
   def goal_params
     params.require(:goal).permit(:name, :end_on, tasks_attributes: [:id,:title, :body,:_destroy])

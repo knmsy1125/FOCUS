@@ -12,6 +12,7 @@
   <body>
     <%= render 'layouts/header' %>
     <main>
+      <%= render '/layouts/shared/flash_messages' %>
       <%= yield %>
     </main>
     <%= render 'layouts/footer' %>
