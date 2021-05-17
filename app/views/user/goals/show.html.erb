@@ -35,7 +35,12 @@
 
         <div class="col-4">
             <div class="col centre">
-                <%= @score %>
+                <% @user_comments.each do |comment| %>
+                    <%= attachment_image_tag(comment.commentator, :profile_image, :size =>'50x50', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %>
+                    <%= comment.commentator.name %>
+                    <%= comment.comment %>
+                <% end %>
+                <%= @fan_count %>
             </div>
         </div>
 

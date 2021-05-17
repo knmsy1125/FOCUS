@@ -41,26 +41,38 @@
 
 
             <h2>フレンド</h2><br><br>
-                    <% if @friends.present? %>
-                       <% @friends.each do |user| %>
-                           <div class='user-card'>
-                                <tr>
-                                    <td>
-                                        <%= attachment_image_tag(user, :profile_image, :size =>'100x100', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %>
-                                    </td>
-                                    <td>
-                                        <%= user.name %>
-                                    </td>
-                                </tr>
-                                <h5>ゴールフォーカス</h5>
-                                <div><%= user.goal.name %></div>
-                                <div>タスクリスト</div>
-                                <% user.goal.tasks.each do |task| %>
-                                    <div><%= task.title %></div>
-                                <% end %>
+                <% if @friends.present? %>
+                   <% @friends.each do |user| %>
+                       <div class='user-card'>
+                            <tr>
+                                <td>
+                                    <%= attachment_image_tag(user, :profile_image, :size =>'100x100', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %>
+                                </td>
+                                <td>
+                                    <%= user.name %>
+                                </td>
+                            </tr>
+                            <h5>ゴールフォーカス</h5>
+                            <div><%= user.goal.name %></div>
+                            <div>タスクリスト</div>
+                            <% user.goal.tasks.each do |task| %>
+                                <div><%= task.title %></div>
+                            <% end %>
+                        </div>
+                        <%= form_with url: friend_comments_path(user.id),remote: true do |f| %>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <%= text_area_tag :comment, '', rows:'5', class: "form-control", placeholder: "コメントはこちら" %>
+                                </div>
                             </div>
+                            <%= f.submit "送信", class: "btn btn-primary" %>
+                        <% end %>
+                        
+                        <%= link_to friend_fans_path(user.id), method: :post ,remote: true do %>
+                            <%= button_tag '応援', class: "btn btn-info" %>
                         <% end %>
                     <% end %>
+                <% end %>
             </div>
         </div>
 

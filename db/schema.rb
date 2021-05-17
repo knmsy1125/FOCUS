@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2021_05_06_114324) do
 
   create_table "fans", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "sopporter"
+    t.integer "sopporter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_05_06_114324) do
 
   create_table "user_comments", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "commentator"
+    t.integer "commentator_id"
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -12,6 +12,8 @@ class User::GoalsController < ApplicationController
 
   def show
     @goal = Goal.find(params[:id])
+    @user_comments = current_user.user_comments
+    @fan_count = Fan.where(user_id: current_user.id).count
   end
 
   def create
