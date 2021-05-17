@@ -19,9 +19,10 @@
         </div>
         </div>
 
-        <div class="col-5">
-            <div class="col centre"><br>
-            <h2>タスク一覧</h2><br><br>
+        <div class="col-4">
+            <div class="col centre">
+            <div class="login-signup_box">
+            <h2>タスク</h2><br><br>
                 <div>
                    <% @goal.tasks.each do |task| %>
                     <h3><%= link_to task.title, task_path(task), class: "task_#{task.id}" %></h3><br>
@@ -29,22 +30,27 @@
                   <% end %>
                 </div>
 
+                
+                </div>
                 <%= link_to "追加", new_task_path, class: "btn btn-danger" %>
             </div>
         </div>
 
-        <div class="col-4">
+        <div class="col-5">
             <div class="col centre">
+            <div class="login-signup_box">
+                <h2>応援数</h2><br>
+                <h1><%= @fan_count %></h1><br><br>
+                <h2>コメント</h2><br>
                 <% @user_comments.each do |comment| %>
-                    <%= attachment_image_tag(comment.commentator, :profile_image, :size =>'50x50', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %>
-                    <%= comment.commentator.name %>
-                    <%= comment.comment %>
+                    <tr>
+                        <td><%= attachment_image_tag(comment.commentator, :profile_image, :size =>'80x80', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %></td>
+                        <td><%= comment.commentator.name %></td>
+                        <td><%= comment.comment %></td><br>
                 <% end %>
-                <%= @fan_count %>
+
+</div>
             </div>
         </div>
-
-
-
     </div>
 </div>

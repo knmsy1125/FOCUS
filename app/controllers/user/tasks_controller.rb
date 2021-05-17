@@ -1,8 +1,5 @@
 class User::TasksController < ApplicationController
   before_action :authenticate_user!
-  def index
-    @task = Task.where(user_id: current_user.id)
-  end
 
   def new
     @goal = current_user.goal

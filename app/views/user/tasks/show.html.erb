@@ -1,7 +1,14 @@
-<div class="col centre"><br>
-
-  <h2>タスク内容</h2><br><br>
-  <h4>タスク名前<br><br><%= @task.title %></h4><br><br>
-  <h4>タスク詳細<br><br><%= @task.body %></h4>
-<%= link_to "編集する", edit_task_path, class: "btn btn-danger" %></div>
+<div class="background">
+  <div class="container">
+    <div class="row">
+      <div class="col centre">
+        <div class="login-signup_box">
+          <h2>タスク内容</h2><br><br>
+          <h4>タスク名前<br><br><%= @task.title %></h4><br><br>
+          <h4>タスク詳細<br><br><%= @task.body %></h4><br><br><br>
+          <%= link_to "編集する", edit_task_path, class: "btn btn-danger" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

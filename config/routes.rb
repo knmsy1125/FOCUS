@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
+  root 'homes#top'
   devise_for :users, controllers: {
     sessions:      'users/sessions',
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
-
-  root 'homes#top'
 
   scope module: :user do
     resource :users, only: [:destroy]
@@ -17,7 +16,7 @@ Rails.application.routes.draw do
     get 'user/new_users' => 'users#new',as:'new_users'
     get 'users/unsubscribe' => 'users#unsubscribe'
     resources :goals, only: [:new, :create, :index, :show]
-    resources :tasks, only: [:index, :show, :edit, :new, :create, :update,:destroy]
+    resources :tasks, only: [:show, :edit, :new, :create, :update,:destroy]
   end
 
   scope module: :friend do

@@ -17,8 +17,21 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+header {
+    height: 70px;
+    width: 100%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+main {
+    min-height: 800px; //最低限の高さを設定
+}
 .clear-blue {
-    height: 7vw;
+    height: 8vw;
     width: 100%;
     background-color: #b0c4de;
 }
