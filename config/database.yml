@@ -23,3 +23,14 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
+
+production:
+  <<: *default
+  database: <%= ENV['FOCUS'] %>
+  adapter: mysql2
+  encoding: utf8mb4
+  charset: utf8mb4
+  collation: utf8mb4_general_ci
+  host: <%= ENV['rds-mysql-server'] %>
+  username: <%= ENV['root'] %>
+  password: <%= ENV['Wmsyknw'] %>
