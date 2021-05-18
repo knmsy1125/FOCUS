@@ -71,6 +71,4 @@ gem 'pry-byebug'
 gem "cocoon"
 gem 'whenever'
 gem 'dotenv-rails'
-group :production do
-  gem 'mysql2'
-end
+gem 'mysql2'
