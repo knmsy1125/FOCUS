@@ -1,9 +1,7 @@
 <div class="navbar navbar-dark bg-secondary">
   <div class="container">
     <div class="navbar-header">
-      <span class="navbar-brand"></span>
-      <a href="/"><img src="/assets/header_logo.png", root_path, class="header_logo" width=100 ></a>
-    </div>
+      <div><%= image_tag "header_logo.png", class: "header_logo_size" %></div>
 
     <ul class="navbar-nav d-flex flex-row">
       <% if user_signed_in? %>
