@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'homes#top'
+  post 'inquiry' => 'inquiries#create',as:'create_inquiry'
+
   devise_for :users, controllers: {
     sessions:      'users/sessions',
     passwords:     'users/passwords',

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_114324) do
+ActiveRecord::Schema.define(version: 2021_05_20_111132) do
 
   create_table "fans", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 2021_05_06_114324) do
     t.integer "user_id", null: false
     t.text "name"
     t.date "end_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "inquiries", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
