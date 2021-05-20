@@ -36,6 +36,14 @@ main {
     background-color: #b0c4de;
 }
 
+.navbar-header {
+    display: flex;
+}
+
+.navbar-nav-list {
+    display: block;
+}
+
 .header_logo {
     background-image: image-url("header_logo.png");
 }
