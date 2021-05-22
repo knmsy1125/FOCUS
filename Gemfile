@@ -72,3 +72,4 @@ gem "cocoon"
 gem 'whenever'
 gem 'dotenv-rails'
 gem 'mysql2'
+gem 'devise-i18n'
