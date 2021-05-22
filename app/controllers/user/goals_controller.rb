@@ -17,7 +17,7 @@ class User::GoalsController < ApplicationController
     @goal = current_user.build_goal(goal_params)
     #@task = @goal.tasks.new(title: params[:goal][:title], boby: params[:goal][:boby])
     if @goal.save
-      redirect_to show_users_path, flash: {success: "登録しました！"}
+      redirect_to show_users_path, flash: {success: "ゴールフォーカス・タスクを登録しました。"}
     else
       @goals = Goal.where(user_id: current_user.id)
       render :index

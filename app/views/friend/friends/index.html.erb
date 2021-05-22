@@ -1,7 +1,9 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col-3">
-            <div class="col centre"><br>
+            <div class="col centre">
+
+        <div class="login-signup_box">
                 <div>
                     <%= attachment_image_tag(current_user, :profile_image, :size =>'200x200', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %>
                 </div><br>
@@ -18,7 +20,7 @@
                     <%= f.select :method, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backword_match"], ["部分一致","partial_match"]]) %>
                     <%= f.submit "検索", class: "btn btn-primary" %>
                 <% end %>
-              </div><br><br>
+              </div><br>
               <% end %>
               <div>
                     <% if @users.present? %>
@@ -35,52 +37,57 @@
               </div>
             </div>
         </div>
+        </div>
 
-        <div class="col-5">
-            <div class="col centre"><br>
+        <div class="col-9">
+            <div class="col centre">
+                <div class="login-signup_box friend-box">
+                    <h2>フレンド</h2>
+                    <div class="line">
+                        <% if @friends.present? %>
+                            <% @friends.each do |user| %>
+                                <div class="line-box">
+                                    <div class="profile_box">
+                                        <div>
+                                            <p>
+                                                <%= attachment_image_tag(user, :profile_image, :size =>'100x100', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %>
+                                            </p>
+                                            <p>
+                                                <%= user.name %>
+                                            </p>
+                                        </div>
+                                        <h5>ゴールフォーカス</h5>
+                                        <div><%= user.goal.name %></div>
+                                        <div>タスクリスト</div>
+                                        <div style="min-height: 70px;">
+                                        <% user.goal.tasks.each do |task| %>
+                                             <div><%= task.title %></div>
+                                        <% end %>
+                                        </div>
 
+                                    </div>
 
-            <h2>フレンド</h2><br><br>
-                <% if @friends.present? %>
-                   <% @friends.each do |user| %>
-                       <div class='user-card'>
-                            <tr>
-                                <td>
-                                    <%= attachment_image_tag(user, :profile_image, :size =>'100x100', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %>
-                                </td>
-                                <td>
-                                    <%= user.name %>
-                                </td>
-                            </tr>
-                            <h5>ゴールフォーカス</h5>
-                            <div><%= user.goal.name %></div>
-                            <div>タスクリスト</div>
-                            <% user.goal.tasks.each do |task| %>
-                                <div><%= task.title %></div>
-                            <% end %>
-                        </div>
-                        <%= form_with url: friend_comments_path(user.id),remote: true do |f| %>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <%= text_area_tag :comment, '', rows:'5', class: "form-control", placeholder: "コメントはこちら" %>
+                                    <div class="action_box">
+                                        <%= form_with url: friend_comments_path(user.id),remote: true do |f| %>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <%= text_area_tag :comment, '', rows:'5', class: "form-control", placeholder: "コメントはこちら" %>
+                                                </div>
+                                            </div><br>
+                                            <%= f.submit "送信", class: "btn btn-primary w-100" %>
+                                        <% end %><br>
+
+                                        <%= link_to friend_fans_path(user.id), method: :post ,remote: true do %>
+                                            <%= button_tag '応援', class: "btn btn-info w-100" %>
+                                        <% end %>
+
+                                    </div>
                                 </div>
-                            </div>
-                            <%= f.submit "送信", class: "btn btn-primary" %>
+                            <% end %>
                         <% end %>
-                        
-                        <%= link_to friend_fans_path(user.id), method: :post ,remote: true do %>
-                            <%= button_tag '応援', class: "btn btn-info" %>
-                        <% end %>
-                    <% end %>
-                <% end %>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="col-4">
-
-            </div>
-        </div>
-
-
     </div>
 </div>

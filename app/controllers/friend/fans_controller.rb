@@ -8,6 +8,7 @@ class Friend::FansController < ApplicationController
     #応援した人
     fan.sopporter = current_user
     fan.save
+
   end
 
     private

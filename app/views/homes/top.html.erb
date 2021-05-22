@@ -11,7 +11,8 @@
 <div class="top-box5 background-img"></div>
 <div class="clear-blue"></div>
 <div class="top-box6 background-img"></div>
-  <div class="contact_form text-center">
+  <div class="col centre">
+        <div class="login-signup_box">
     <%= form_with url: create_inquiry_path, model: @inquiry, local:true do |f| %>
       <h3>名前</h3>
       <%= f.text_field :name %>
@@ -25,3 +26,4 @@
     <% end %>
     <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
   </div>
+</div>

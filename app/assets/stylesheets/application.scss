@@ -17,6 +17,18 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+// 全般
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.alert {
+    margin-bottom: 0;
+    background: #ADD8E6;
+}
+
 header {
     height: 70px;
     width: 100%;
@@ -29,6 +41,7 @@ header {
 
 main {
     min-height: 800px; //最低限の高さを設定
+    background-color: #b0c4de;
 }
 .clear-blue {
     height: 8vw;
@@ -104,20 +117,60 @@ main {
 }
 
 .login-signup_box {
-    margin: 4%;
+    margin: 10px;
     padding: 8% 15%;
     border-radius: 6px;
     background-color: #ffffff;
+}
+
+.friend-box {
+    width: 100%;
+}
+
+.box {
+
+    background-color: #ffffff;
+}
+
+
+.line {
+    display: flex;
+    flex-wrap: wrap;
+    .line-box {
+        width: 100%;
+        margin: 10% 0;
+        padding: 10% 10%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        border: 5px #ccc solid;
+    }
 }
 
 .background {
     background-color: #b0c4de;
 }
 
-/* フレンド */
-.user-card {
-    float: left;
-    width: 305px;
-    height: 280px;
-    border: 1px #ccc solid;
+
+p.cheering-count {
+    font-size: 30px;
+
+    span {
+        font-size: 50px;
+    }
+}
+
+.comment {
+    .comment-title {
+        p {
+            font-size: 30px;
+        }
+    }
+
+    .comment-list {
+        .comment-list-child {
+            display: flex;
+            align-items: center;
+        }
+    }
 }

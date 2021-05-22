@@ -18,9 +18,8 @@ class User::UsersController < ApplicationController
   def show
     @user = current_user
     @goal =  @user.goal
-    if @goal.present?
-      redirect_to goal_path(@goal.id)
-    end
+    @user_comments = current_user.user_comments
+    @fan_count = Fan.where(user_id: current_user.id).count
   end
 
 	def unsubscribe
@@ -29,16 +28,19 @@ class User::UsersController < ApplicationController
 
   def dream
     user = current_user
-	  if user.update(user_params)
-	    flash[:success] = "登録情報を保存しました"
-	    redirect_to goals_path
-	  end
+    if params[:user][:dream] == ""
+      render :new
+    else
+      user.update(user_params)
+      flash[:success] = "夢を登録しました。"
+      redirect_to  goals_path
+    end
   end
 
 	def update
 	  user = current_user
 	  if user.update(user_params)
-	    flash[:success] = "登録情報を変更しました"
+	    flash[:success] = "登録情報を保存しました。"
 	    if params[:m_flg].present?
 	      redirect_to show_users_path(user)
 	      return

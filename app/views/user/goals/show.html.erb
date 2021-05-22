@@ -1,7 +1,8 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col-3">
-            <div class="col centre"><br>
+            <div class="col centre">
+        <div class="login-signup_box">
                 <div>
                     <%= attachment_image_tag(current_user, :profile_image, :size =>'200x200', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %>
                 </div><br>
@@ -12,17 +13,18 @@
                 <%= link_to '',edit_users_path(:m_flg => 1), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %><br><br><br>
 
             <div>
-            <h2>ゴールフォーカス</h2><br><br><br>
+            <h4>ゴールフォーカス</h4><br><br><br>
             <h3><%= @goal.name %></h3><br><br><br><br>
             <h4><%= @goal.end_on %></h4>
             </div>
         </div>
         </div>
+        </div>
 
-        <div class="col-4">
+        <div class="col-5">
             <div class="col centre">
             <div class="login-signup_box">
-            <h2>タスク</h2><br><br>
+            <h2> 　　タスク　　</h2><br><br>
                 <div>
                    <% @goal.tasks.each do |task| %>
                     <h3><%= link_to task.title, task_path(task), class: "task_#{task.id}" %></h3><br>
@@ -30,26 +32,43 @@
                   <% end %>
                 </div>
 
-                
-                </div>
-                <%= link_to "追加", new_task_path, class: "btn btn-danger" %>
+
+
+                <%= link_to "追加", new_task_path, class: "btn btn-success w-100" %>
             </div>
         </div>
+        </div>
 
-        <div class="col-5">
+        <div class="col-4">
             <div class="col centre">
-            <div class="login-signup_box">
-                <h2>応援数</h2><br>
-                <h1><%= @fan_count %></h1><br><br>
-                <h2>コメント</h2><br>
-                <% @user_comments.each do |comment| %>
-                    <tr>
-                        <td><%= attachment_image_tag(comment.commentator, :profile_image, :size =>'80x80', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %></td>
-                        <td><%= comment.commentator.name %></td>
-                        <td><%= comment.comment %></td><br>
-                <% end %>
+                <div class="login-signup_box">
 
-</div>
+                    <div class="cheering">
+                        <p class="cheering-count">応援数<br><span><%= @fan_count %></span> </p>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-title">
+                            <p>コメント</p>
+                        </div>
+
+                        <div class="comment-list">
+                            <% @user_comments.each do |comment| %>
+                                <div class="comment-list-child">
+                                    <div class="comment-list-child-icon">
+                                        <%= attachment_image_tag(comment.commentator, :profile_image, :size =>'80x80', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %>
+                                        <p><%= comment.commentator.name %></p>
+                                    </div>
+
+                                    <div class="comment-list-child-string">
+                                        <p><%= comment.comment %></p>
+                                    </div>
+
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

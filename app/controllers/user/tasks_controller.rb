@@ -6,10 +6,7 @@ class User::TasksController < ApplicationController
     @goal.tasks.build
     @task = Task.new
     @goals = Goal.where(user_id: current_user.id)
-    if @task.save
-      redirect_to goal_path, flash: {success: "タスクを登録しました！"}
-
-    end
+    @task.save
   end
 
   def show
@@ -19,7 +16,7 @@ class User::TasksController < ApplicationController
   def create
     @task = current_user.goal.tasks.build(task_params)
     if @task.save
-      redirect_to show_users_path, flash: {success: "タスクを登録しました！"}
+      redirect_to show_users_path, flash: {success: "タスクを登録しました。"}
     else
       @tasks = Task.where(user_id: current_user.id)
       render :index
@@ -33,7 +30,7 @@ class User::TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     if @task.update(task_params)
-      redirect_to show_users_path, flash: {success: "タスクを更新しました！"}
+      redirect_to show_users_path, flash: {success: "タスクを更新しました。"}
     else
       render :edit
     end
@@ -42,7 +39,7 @@ class User::TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    flash[:notice] = 'ユーザーを削除しました。'
+    flash[:notice] = 'タスクを削除しました。'
     redirect_to show_users_path #削除に成功すればrootページに戻る
   end
 

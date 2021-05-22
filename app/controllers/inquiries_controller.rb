@@ -2,13 +2,11 @@ class InquiriesController < ApplicationController
 
   def create
     @inquiry = Inquiry.new(inquiry_params)
-    if @inquiry.save
+    @inquiry.save
       InquiryMailer.send_mail(@inquiry).deliver
       redirect_to root_path
-      flash[:email] = "Your message was successfully sent."
-    else
-      render 'new'
-    end
+      flash[:email] = "お問い合わせ内容を管理者に送信しました。"
+
   end
 
   private
