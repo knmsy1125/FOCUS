@@ -11,20 +11,28 @@
 <div class="top-box5 background-img"></div>
 <div class="clear-blue"></div>
 <div class="top-box6 background-img"></div>
-  <div class="col centre">
-    <div class="login-signup_box">
-      <%= form_with url: create_inquiry_path, model: @inquiry, local:true do |f| %>
-        <h4>名前</h4>
-        <%= f.text_field :name %>
-        <h4>メールアドレス</h4>
-        <%= f.email_field :email %>
-        <h4>メッセージ</h4>
-        <%= f.text_area :message %>
-      <div>
-        <p><%= f.submit "送信", class: "btn btn-primary w-100" %></p>
+<div class="col centre">
+  <div class="box">
+    <div>ポートフォリオ閲覧用</div><br>
+    <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "btn btn-success" %><br><br>
+    <%= form_with url: create_inquiry_path, model: @inquiry, local:true do |f| %>
+      この度はFOCUSをご訪問いただき誠にありがとうございます。<br>
+      本アプリは、実際に管理者が子供の頃から抱いていた疑問をシステムを作ることにより効率化したものとなっております。<br>
+      各々の夢に向かって高め合う友達と刺激し合いながら全員がHappyになれるようにと思い作成しました。<br>
+      「こんな機能があったら良いね！」や「ここは改善したほうがいい。」等、ご意見・ご感想がありましたら、<br>
+      ぜひコメントにてお知らせいただけますと幸いです。(どんなに些細なことでも構いません！)<br>
+      皆様からいただきましたアドバイスを今後の作品改善や学習に取り入れて参りたいと思います。<br><br>
+      <div>お問い合わせフォーム</div>
+      <div>名前</div>
+      <div><%= f.text_field :name %></div><br>
+      <div>メールアドレス</div>
+      <div><%= f.email_field :email %></div><br>
+      <div>ご意見・ご感想</div>
+      <div><%= f.text_area :message %></div>
+      <div><br>
+        <p><%= f.submit "管理者へメッセージを送信", class: "btn btn-info" %></p>
       </div>
-      <% end %>
-      <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
-    </div>
+    <% end %>
   </div>
 </div>
+

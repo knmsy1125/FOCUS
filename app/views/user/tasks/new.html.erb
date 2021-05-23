@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col centre">
-        <div class="login-signup_box">
+        <div class="box">
           <%= form_with model: @task, local: true do |f| %>
           <h2>タスク新規登録</h2><br><br>
             <h4>タスク名前<br><br><%= f.text_field :title, class: "form-control", autofocus: true, placeholder: "タスク名前" %></h4><br><br>
