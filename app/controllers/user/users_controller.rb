@@ -18,7 +18,7 @@ class User::UsersController < ApplicationController
   def show
     @user = current_user
     @goal =  @user.goal
-    @user_comments = current_user.user_comments
+    @user_comments = current_user.user_comments.page(params[:page]).per(4)
     @fan_count = Fan.where(user_id: current_user.id).count
   end
 

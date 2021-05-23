@@ -1,22 +1,23 @@
 <%= form_with model: goal, local: true do |f| %>
   <div class="container">
-    <div class="row">
-      <div class="col-6">
-        <h4 class="col centre"><%= f.label :end_on, "終了日" %></h4>
-        <%= f.date_select :end_on,  {:use_month_numbers  => true}, {class: 'form-control', style: 'display: inline-block;width: auto;'} %><br><br><br>
-        <h3 class="col centre"><%= f.label :name, "目標" %></h3>
-        <div class="col centre"><%= f.text_field :name, class: "form-control", autofocus: true, placeholder: "目標" %></div>
-      </div>
-      <div class="col-6">
-        <h4 class="col centre"><%= f.label :name, "タスク" %></h4>
-        <%= f.fields_for :tasks do |task| %>
-          <%= render 'task_fields', :f => task %>
-        <% end %>
-        <div class='links'>
-          <div class="col centre"><%= link_to_add_association '追加', f, :tasks, class: "btn btn-success w-100" %></div>
-        </div><br><br><br><br><br><br><br><br>
-      </div>
-      <div class="col centre"><%= f.submit btn, class: "btn btn-success w-100" %></div>
+
+    <div class="row" style="margin: 10px; padding: 4% 7%; border-radius: 6px; background-color: #ffffff; width: 600px;">
+        <div class="col-6">
+          <h4 class="col centre"><%= f.label :end_on, "終了日" %></h4>
+          <%= f.date_select :end_on,  {:use_month_numbers  => true}, {class: 'form-control', style: 'display: inline-block;width: auto;'} %><br><br><br>
+          <h3 class="col centre"><%= f.label :name, "目標" %></h3>
+          <div class="col centre"><%= f.text_field :name, class: "form-control", autofocus: true, placeholder: "目標" %></div>
+        </div>
+        <div class="col-6">
+          <h4 class="col centre"><%= f.label :name, "タスク" %></h4>
+          <%= f.fields_for :tasks do |task| %>
+            <%= render 'task_fields', :f => task %>
+          <% end %>
+          <div class='links'>
+            <div class="col centre"><%= link_to_add_association '追加', f, :tasks, class: "btn btn-success w-100" %></div>
+          </div><br><br><br><br><br><br><br><br>
+        </div>
+        <div class="col centre"><%= f.submit btn, class: "btn btn-success w-100" %></div>
     </div>
   </div>
 <% end %>
