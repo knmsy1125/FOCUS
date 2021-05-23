@@ -1,20 +1,16 @@
 <div class="background">
-<div class="container">
-  <div class="row">
-    <div class="col centre">
+  <div class="container">
+    <div class="row">
+      <div class="col centre">
         <div class="login-signup_box">
           <h1>本当に退会しますか？</h1></br><br><br><br>
-
           <h4>
             退会するとユーザー情報や</br>
             これまでのFOCUS履歴が閲覧できなくなります。</br>
             退会する場合は、「退会する」をクリックしてください。
           </h4></br><br><br><br><br><br>
-
-          <div>
-            <%= link_to "退会しない",show_users_path , class: "btn btn-primary"%>
-            <%= link_to "退会する",users_path , method: :delete, class: "btn btn-danger" %>
-          </div>
+          <%= link_to "退会しない",show_users_path , class: "btn btn-primary"%>
+          <%= link_to "退会する",users_path , method: :delete, class: "btn btn-danger" %>
         </div>
       </div>
     </div>

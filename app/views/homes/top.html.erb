@@ -12,18 +12,19 @@
 <div class="clear-blue"></div>
 <div class="top-box6 background-img"></div>
   <div class="col centre">
-        <div class="login-signup_box">
-    <%= form_with url: create_inquiry_path, model: @inquiry, local:true do |f| %>
-      <h3>名前</h3>
-      <%= f.text_field :name %>
-      <h3>メールアドレス</h3>
-      <%= f.email_field :email %>
-      <h3>メッセージ</h3>
-      <%= f.text_area :message %>
-    <div>
-      <p><%= f.submit "送信" %></p>
+    <div class="login-signup_box">
+      <%= form_with url: create_inquiry_path, model: @inquiry, local:true do |f| %>
+        <h4>名前</h4>
+        <%= f.text_field :name %>
+        <h4>メールアドレス</h4>
+        <%= f.email_field :email %>
+        <h4>メッセージ</h4>
+        <%= f.text_area :message %>
+      <div>
+        <p><%= f.submit "送信", class: "btn btn-primary w-100" %></p>
+      </div>
+      <% end %>
+      <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
     </div>
-    <% end %>
-    <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
   </div>
 </div>

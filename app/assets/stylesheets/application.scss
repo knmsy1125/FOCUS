@@ -24,29 +24,20 @@
   box-sizing: border-box;
 }
 
+//フラッシュアラート
 .alert {
     margin-bottom: 0;
     background: #ADD8E6;
 }
 
+//ヘッダー
 header {
     height: 70px;
     width: 100%;
-
     position: fixed;
     top: 0;
     left: 0;
     z-index: 10;
-}
-
-main {
-    min-height: 800px; //最低限の高さを設定
-    background-color: #b0c4de;
-}
-.clear-blue {
-    height: 8vw;
-    width: 100%;
-    background-color: #b0c4de;
 }
 
 .navbar-header {
@@ -67,6 +58,20 @@ main {
     width: 10%;
 }
 
+//メイン
+main {
+    min-height: 800px; //最低限の高さを設定
+    background-color: #b0c4de;
+}
+
+// トップ隙間
+.clear-blue {
+    height: 8vw;
+    width: 100%;
+    background-color: #b0c4de;
+}
+
+//トップ写真
 .top-box1 {
     height: 50vw;
     width: 100%;
@@ -109,6 +114,7 @@ main {
     background-size: cover;
 }
 
+//センター統一
 .centre {
     display: flex;
     align-items: center;
@@ -116,6 +122,7 @@ main {
     text-align: center;
 }
 
+//ボックス
 .login-signup_box {
     margin: 10px;
     padding: 8% 15%;
@@ -123,15 +130,16 @@ main {
     background-color: #ffffff;
 }
 
+//フレンドボックス
 .friend-box {
     width: 100%;
 }
+
 
 .box {
 
     background-color: #ffffff;
 }
-
 
 .line {
     display: flex;
@@ -151,7 +159,7 @@ main {
     background-color: #b0c4de;
 }
 
-
+//応援数
 p.cheering-count {
     font-size: 30px;
 
@@ -160,6 +168,7 @@ p.cheering-count {
     }
 }
 
+//コメント
 .comment {
     .comment-title {
         p {

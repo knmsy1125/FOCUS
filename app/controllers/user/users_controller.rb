@@ -32,17 +32,17 @@ class User::UsersController < ApplicationController
       render :new
     else
       user.update(user_params)
-      flash[:success] = "夢を登録しました。"
-      redirect_to  goals_path
+      # 登録後ゴールフォーカス、タスク新規登録ページに飛びflash表示
+      redirect_to goals_path, flash: {success: "夢を登録しました。"}
     end
   end
 
 	def update
 	  user = current_user
 	  if user.update(user_params)
-	    flash[:success] = "登録情報を保存しました。"
 	    if params[:m_flg].present?
-	      redirect_to show_users_path(user)
+	      # 登録後ユーザーページに飛びflash表示
+	      redirect_to show_users_path, flash: {success: "登録情報を保存しました。"}
 	      return
 	    end
 
@@ -55,8 +55,6 @@ class User::UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    flash[:notice] = 'ユーザーを削除しました。'
-    redirect_to root_path #削除に成功すればrootページに戻る
   end
 
 	private

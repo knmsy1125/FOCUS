@@ -4,15 +4,18 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>
-      <%= @user.name %>様おはようございます。<br>
-      今日のタスク一覧です。<br>
-      夢に向かってがんばりましょう。<br>
-      <br>
-      <% @goal.tasks.each do |task| %>
-        <%= task.title %>
-        <%= task.body %>
-      <% end %>
-      </h1>
+    <h5>本日のタスク一覧</h5>
+
+    <P>-----------------------------------------</P>
+
+    <p><%= @user.name %>様おはようございます。</p>
+
+    <p>夢に向かってがんばりましょう。</p>
+
+    <% @goal.tasks.each do |task| %>
+      <p><%= task.title %><br><%= task.body %></p>
+    <% end %>
+
+    <p>-----------------------------------------</p>
   </body>
 </html>

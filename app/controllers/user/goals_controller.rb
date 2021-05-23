@@ -7,28 +7,14 @@ class User::GoalsController < ApplicationController
     @goals = Goal.where(user_id: current_user.id)
   end
 
-  def show
-    @goal = Goal.find(params[:id])
-    @user_comments = current_user.user_comments
-    @fan_count = Fan.where(user_id: current_user.id).count
-  end
-
   def create
     @goal = current_user.build_goal(goal_params)
-    #@task = @goal.tasks.new(title: params[:goal][:title], boby: params[:goal][:boby])
     if @goal.save
+      # 登録後ユーザーページに飛びflash表示
       redirect_to show_users_path, flash: {success: "ゴールフォーカス・タスクを登録しました。"}
     else
       @goals = Goal.where(user_id: current_user.id)
       render :index
-    end
-  end
-
-  def update
-    if @goal.update(goal_params)
-      redirect_to goals_path, flash: {success: "更新しました！"}
-    else
-      render :edit
     end
   end
 

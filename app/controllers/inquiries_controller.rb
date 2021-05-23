@@ -4,8 +4,8 @@ class InquiriesController < ApplicationController
     @inquiry = Inquiry.new(inquiry_params)
     @inquiry.save
       InquiryMailer.send_mail(@inquiry).deliver
-      redirect_to root_path
-      flash[:email] = "お問い合わせ内容を管理者に送信しました。"
+      # 送信後ユーザーページに飛びflash表示
+      redirect_to root_path, flash: {success: "お問い合わせ内容を管理者に送信しました。"}
 
   end
 

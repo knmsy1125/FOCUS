@@ -6,13 +6,9 @@
                     <div>
                         <%= attachment_image_tag(current_user, :profile_image, :size =>'200x200', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %>
                     </div><br>
-
-                    <h4>
-                        <%= current_user.name %>
-                    </h4><br>
+                    <h4><%= current_user.name %></h4><br>
                     <%= link_to '',edit_users_path(:m_flg => 1), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %><br><br><br>
                     <% if current_user.goal %>
-
                         <div>
                             <h4>ゴールフォーカス</h4><br><br><br>
                             <h3><%= current_user.goal.name %></h3><br><br><br><br>
@@ -21,7 +17,6 @@
                     <% else %>
                         <%= link_to "夢とゴールフォーカスをを追加してくだいさい。", new_users_path, class: "btn btn-success w-100" %>
                     <% end %>
-
                 </div>
             </div>
         </div>
@@ -40,7 +35,6 @@
                 </div>
             </div>
          <% end %>
-
         <div class="col-4">
             <div class="col centre">
                 <div class="login-signup_box">
@@ -48,7 +42,6 @@
                     <div class="cheering">
                         <p class="cheering-count">応援数<br><span><%= @fan_count %></span> </p>
                     </div>
-
                     <div class="comment">
                         <div class="comment-title">
                             <p>コメント</p>
@@ -61,11 +54,9 @@
                                         <%= attachment_image_tag(comment.commentator, :profile_image, :size =>'80x80', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %>
                                         <p><%= comment.commentator.name %></p>
                                     </div>
-
                                     <div class="comment-list-child-string">
                                         <p><%= comment.comment %></p>
                                     </div>
-
                                 </div>
                             <% end %>
                         </div>

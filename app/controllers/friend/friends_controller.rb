@@ -4,10 +4,9 @@ class Friend::FriendsController < ApplicationController
     @method = params[:method]
     @word = params[:word]
     @users = if @method.present? && @word.present?
-      Friend.looks(@word, @method)
+    Friend.looks(@word, @method)
     else
       nil
-      #User.all
     end
       @friends = User.where(id: current_user.friends.split(",").map(&:to_i))
   end
@@ -24,10 +23,5 @@ class Friend::FriendsController < ApplicationController
     else
       render :index
     end
-    # if current_user.friends.nil?
-    #   current_user.friends = params[:user][:friends].to_s
-    # else
-    #   current_user.friends = "#{current_user.friends},#{params[:user][:friends]}"
-    # end
   end
 end

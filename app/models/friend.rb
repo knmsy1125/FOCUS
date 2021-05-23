@@ -1,4 +1,5 @@
 class Friend < ApplicationRecord
+  # 検索機能
   def self.looks(word, method)
     if method == "perfect_match"
       @friends = User.where("name LIKE?", "#{word}")
