@@ -49,6 +49,7 @@
                                                 <%= user.name %>
                                             </p>
                                         </div>
+                                        <% if current_user.goal %>
                                         <h5>ゴールフォーカス</h5>
                                         <div><%= user.goal.name %></div>
                                         <div>タスクリスト</div>
@@ -57,6 +58,10 @@
                                              <div><%= task.title %></div>
                                         <% end %>
                                         </div>
+                                        <% else %>
+                                            <%= link_to "必要項目を入力", goals_path, class: "btn btn-success w-100" %>
+                                        <% end %>
+
                                     </div>
                                     <div class="action_box">
                                         <%= form_with url: friend_comments_path(user.id),remote: true do |f| %>
