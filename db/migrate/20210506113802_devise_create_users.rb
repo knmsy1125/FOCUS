@@ -32,16 +32,16 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-      t.string :name,             null: false                  #ユーザー名前
-      t.string :profile_image_id                               #ユーザー写真
-      t.string :friends, null: false, default: ""                                       #検索用frend
-      t.string :dream
-      # Trackableに必要なカラム
-      t.integer  :sign_in_count, default: 0, null: false
-      t.datetime :current_sign_in_at
-      t.datetime :last_sign_in_at
-      t.string   :current_sign_in_ip
-      t.string   :last_sign_in_ip
+      t.string :name,             null: false            # ユーザー名前
+      t.string :profile_image_id                         # ユーザー写真
+      t.string :friends, null: false, default: ""        # 検索用frend
+      t.string :dream                                    # 夢
+      t.integer  :sign_in_count, default: 0, null: false # Trackableに必要なカラム
+      t.datetime :current_sign_in_at                     # Trackableに必要なカラム
+      t.datetime :last_sign_in_at                        # Trackableに必要なカラム
+      t.string   :current_sign_in_ip                     # Trackableに必要なカラム
+      t.string   :last_sign_in_ip                        # Trackableに必要なカラム
+
       t.timestamps null: false
     end
 
