@@ -61,16 +61,16 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'devise'
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
-gem 'bootstrap', '~> 4.5'
-gem 'jquery-rails'
-gem 'font-awesome-sass', '~> 5.13'
-gem 'pry-byebug'
-gem "cocoon"
-gem 'whenever'
-gem 'dotenv-rails'
-gem 'mysql2'
-gem 'devise-i18n'
-gem 'kaminari'
+gem 'devise' # devise使用
+gem "refile", require: "refile/rails", github: 'manfe/refile' # 画像挿入
+gem "refile-mini_magick"           # 画像リサイズ
+gem 'bootstrap', '~> 4.5'          # Bootstrap使用
+gem 'jquery-rails'                 # Jquery使用
+gem 'font-awesome-sass', '~> 5.13' # Font-awesome使用
+gem 'pry-byebug'                   # バグの確認
+gem "cocoon"                       # 一つのフォームで親子関係のある複数モデルのレコード作成かつ子モデルのレコードを複数挿入
+gem 'whenever'                     # バッチ処理
+gem 'dotenv-rails'                 # .env
+gem 'mysql2'                       # misql2使用
+gem 'devise-i18n'                  # 日本語化
+gem 'kaminari'                     # カミナリ
