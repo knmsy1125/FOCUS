@@ -36,10 +36,7 @@ ActiveRecord::Schema.define(version: 2021_05_20_111132) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.integer "weight_id"
     t.integer "goal_id", null: false
-    t.integer "count"
-    t.integer "count_out"
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
