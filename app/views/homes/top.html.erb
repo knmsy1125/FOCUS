@@ -13,7 +13,7 @@
 <div class="top-box6 background-img"></div>
 <div class="col centre">
   <div class="box">
-    <div>ポートフォリオ閲覧用</div><br>
+    <h3>ポートフォリオ閲覧用</h3><br>
     <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "btn btn-success" %><br><br>
     <%= form_with url: create_inquiry_path, model: @inquiry, local:true do |f| %>
       この度はFOCUSをご訪問いただき誠にありがとうございます。<br>
@@ -22,7 +22,7 @@
       「こんな機能があったら良いね！」や「ここは改善したほうがいい。」等、ご意見・ご感想がありましたら、<br>
       ぜひコメントにてお知らせいただけますと幸いです。(どんなに些細なことでも構いません！)<br>
       皆様からいただきましたアドバイスを今後の作品改善や学習に取り入れて参りたいと思います。<br><br>
-      <div>お問い合わせフォーム</div>
+      <h3>お問い合わせフォーム</h3>
       <div>名前</div>
       <div><%= f.text_field :name %></div><br>
       <div>メールアドレス</div>

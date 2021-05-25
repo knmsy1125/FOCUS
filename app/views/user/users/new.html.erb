@@ -5,10 +5,10 @@
         <div class="box">
           <h1>設定</h1><br>
           <%= form_for(current_user, url: dream_users_path, method: :patch) do |f| %>
-            <div class="field">
+            <h5 class="field">
               <%= f.label :あなたの夢はなんですか？ %><br />
               <%= f.text_field :dream, autofocus: true, autocomplete: "name", size: 25 %>
-            </div><br />
+            </h5><br />
             <%= f.submit '保存', class: "btn btn-success w-100" %>
           <% end %>
         </div>
