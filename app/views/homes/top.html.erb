@@ -1,4 +1,3 @@
-
 <div class="top-box1 background-img"></div>
 <div class="clear-blue"></div>
 <div class="clear-blue-1" id="about"></div>
@@ -28,11 +27,10 @@
       <div>メールアドレス</div>
       <div><%= f.email_field :email %></div><br>
       <div>ご意見・ご感想</div>
-      <div><%= f.text_area :message %></div>
-      <div><br>
+      <div><%= f.text_area :message %></div><br>
+      <div>
         <p><%= f.submit "管理者へメッセージを送信", class: "btn btn-info" %></p>
       </div>
     <% end %>
   </div>
 </div>
-
