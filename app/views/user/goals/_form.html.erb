@@ -5,7 +5,7 @@
         <div class="col-6">
           <h4 class="col centre"><%= f.label :end_on, "終了日" %></h4>
           <%= f.date_select :end_on,  {:use_month_numbers  => true}, {class: 'form-control', style: 'display: inline-block;width: auto;'} %><br><br><br>
-          <h3 class="col centre"><%= f.label :name, "目標" %></h3>
+          <h4 class="col centre"><%= f.label :name, "ゴールフォーカス" %></h4>
           <div class="col centre"><%= f.text_field :name, class: "form-control", autofocus: true, placeholder: "目標" %></div>
         </div>
         <div class="col-6">
