@@ -51,13 +51,13 @@
                                         </div>
                                         <% if current_user.goal %>
                                         <h5>ゴールフォーカス</h5>
-                                        <div><%= user.goal.name %></div>
-                                        <div>タスクリスト</div>
+                                        <div><%= user.goal.name %></div><br>
+                                        <h5>タスク一覧</h5>
                                         <div style="min-height: 70px;">
                                         <% user.goal.tasks.each do |task| %>
                                              <div><%= task.title %></div>
                                         <% end %>
-                                        </div>
+                                        </div><br>
                                         <% else %>
                                             <%= link_to "必要項目を入力", goals_path, class: "btn btn-success w-100" %>
                                         <% end %>
