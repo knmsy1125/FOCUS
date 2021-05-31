@@ -3,23 +3,28 @@
         <div class="col-3">
             <div class="col centre">
                 <div class="box">
+                    <!--ユーザー情報-->
                     <div>
                         <%= attachment_image_tag(current_user, :profile_image, :size =>'200x200', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %>
                     </div><br>
                     <h4><%= current_user.name %></h4><br>
+                    <!--ユーザー情報編集ボタン-->
                     <%= link_to '',edit_users_path(:m_flg => 1), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %><br><br><br>
+                    <!--ゴールフォーカス-->
                     <% if current_user.goal %>
                         <div>
                             <h4>ゴールフォーカス</h4><br><br><br>
                             <h3><%= current_user.goal.name %></h3><br><br><br><br>
                             <h4><%= current_user.goal.end_on %></h4>
                         </div>
+                    <!--ゴールフォーカスとタスク一覧が入力されていなかった場合表示-->
                     <% else %>
                         <%= link_to "必要項目を入力", goals_path, class: "btn btn-success w-100" %>
                     <% end %>
                 </div>
             </div>
         </div>
+        <!--タスク-->
         <% if current_user.goal %>
             <div class="col-5">
                 <div class="col centre">
@@ -38,15 +43,15 @@
         <div class="col-4">
             <div class="col centre">
                 <div class="box">
-
+                    <!--応援数-->
                     <div class="cheering">
                         <p class="cheering-count">応援数<br><span><%= @fan_count %></span> </p>
                     </div>
+                    <!--コメント-->
                     <div class="comment">
                         <div class="comment-title">
                             <p>コメント</p>
                         </div>
-
                         <div class="comment-list">
                             <% @user_comments.each do |comment| %>
                                 <div class="comment-list-child">
@@ -59,6 +64,7 @@
                                     </div>
                                 </div>
                             <% end %>
+                            <!--カミナリ-->
                             <%= paginate @user_comments %>
                         </div>
                     </div>

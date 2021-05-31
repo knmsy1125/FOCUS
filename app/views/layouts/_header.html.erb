@@ -1,12 +1,15 @@
+<!--ヘッダー-->
 <div class="navbar navbar-dark bg-secondary">
   <div class="container">
     <div class="navbar-header">
       <div><a href="/"><%= image_tag "header_logo.png", class: "header_logo_size" %></a></div>
       <ul class="navbar-nav d-flex flex-row">
+        <!--ログインしている時-->
         <% if user_signed_in? %>
         <li class="navbar-nav-list"><%= link_to "Mypage", show_users_path, class: "fas fa-tasks nav-link ml-3" %></li>
         <li class="navbar-nav-list"><%= link_to "Friend", friends_path, class: "fas fa-users nav-link ml-3" %></li>
         <li class="navbar-nav-list"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link ml-3" %></li>
+        <!--ログインしていない時-->
         <% else %>
         <li class="navbar-nav-list"><%= link_to "About", href="/#about", class: "fas fa-link nav-link ml-3" %></li>
         <li class="navbar-nav-list"><%= link_to "Sign_up", new_user_registration_path, class: "fas fa-user-plus nav-link ml-3" %></li>

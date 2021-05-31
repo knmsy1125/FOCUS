@@ -1,6 +1,7 @@
 class TodayMailer < ApplicationMailer
   default from: 'focus.xxxxxx@gmail.com'
 
+  # 毎日のメール
   def today_email
     users =  User.all
     users.each do |user|

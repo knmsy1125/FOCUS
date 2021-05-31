@@ -7,6 +7,7 @@
                         <%= attachment_image_tag(current_user, :profile_image, :size =>'200x200', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %>
                     </div><br>
                     <h4><%= current_user.name %></h4><br>
+                    <!--ユーザー検索-->
                     <h2>ユーザー検索</h2><br>
                     <% if user_signed_in? %>
                         <div class="search_form">
@@ -18,6 +19,7 @@
                         </div><br>
                     <% end %>
                     <div>
+                        <!--フレンド追加処理-->
                         <% if @users.present? %>
                            <% @users.each do |user| %>
                                 <div><%= attachment_image_tag(user, :profile_image, :size =>'150x150', :style =>"border-radius: 80%", fallback: "no-image-icon.png") %></div><br>
@@ -35,6 +37,7 @@
         <div class="col-9">
             <div class="col centre">
                 <div class="box friend-box">
+                    <!--フレンドボックス内容-->
                     <h2>フレンド</h2>
                     <div class="line">
                         <% if @friends.present? %>
@@ -49,6 +52,7 @@
                                                 <%= user.name %>
                                             </p>
                                         </div>
+                                        <!--ゴールフォーカスとタスク一覧が入力されていなかった場合表示-->
                                         <% if current_user.goal %>
                                         <h5>ゴールフォーカス</h5>
                                         <div><%= user.goal.name %></div><br>
@@ -58,11 +62,12 @@
                                              <div><%= task.title %></div>
                                         <% end %>
                                         </div><br>
+                                        <!--ゴールフォーカスとタスク一覧が入力されていなかった場合表示-->
                                         <% else %>
                                             <%= link_to "必要項目を入力", goals_path, class: "btn btn-success w-100" %>
                                         <% end %>
-
                                     </div>
+                                    <!--コメント機能-->
                                     <div class="action_box">
                                         <%= form_with url: friend_comments_path(user.id),remote: true do |f| %>
                                             <div class="row">
@@ -72,11 +77,10 @@
                                             </div><br>
                                             <%= f.submit "送信", class: "btn btn-primary w-100" %>
                                         <% end %><br>
-
+                                        <!--応援機能-->
                                         <%= link_to friend_fans_path(user.id), method: :post ,remote: true do %>
                                             <%= button_tag '応援', class: "btn btn-info w-100" %>
                                         <% end %>
-
                                     </div>
                                 </div>
                             <% end %>

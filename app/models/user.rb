@@ -20,6 +20,7 @@ class User < ApplicationRecord
     end
   end
 
+  # ログイン日判定
   def self.week_no_login_email
     User.all.each do |user|
       if Date.today-7 < user.last_sign_in_at

@@ -1,3 +1,4 @@
+<!--top写真1-6-->
 <div class="top-box1 background-img"></div>
 <div class="clear-blue"></div>
 <div class="clear-blue-1" id="about"></div>
@@ -12,8 +13,10 @@
 <div class="top-box6 background-img"></div>
 <div class="col centre">
   <div class="box">
+    <!--ゲストログイン-->
     <h3>ポートフォリオ閲覧用</h3><br>
     <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "btn btn-success" %><br><br>
+    <!--お問い合わせ-->
     <%= form_with url: create_inquiry_path, model: @inquiry, local:true do |f| %>
       この度はFOCUSをご訪問いただき誠にありがとうございます。<br>
       本アプリは、実際に管理者が子供の頃から抱いていた疑問をシステムを作ることにより効率化したものとなっております。<br>
