@@ -24,5 +24,5 @@ every 1.day, at: ['11:00 pm'] do #OSがUTCだからJST日本時刻を表示さ�
 end
 
 every 1.day, at: ['11:00 pm'] do
-  runner "WeekNoLoginMailer.week_no_login_email.deliver"
+  runner "User.week_no_login_email"
 end

@@ -20,4 +20,11 @@ class User < ApplicationRecord
     end
   end
 
+  def self.week_no_login_email
+    User.all.each do |user|
+      if Date.today-7 < user.last_sign_in_at
+        WeekNoLoginMailer.with(user: user).week_no_login_email.deliver
+      end
+    end
+  end
 end
